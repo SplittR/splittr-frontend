@@ -32,7 +32,9 @@ class LoginForm extends Component {
 
   handleHighLightPress() {
     const { user } = this.state;
-    fetch("http://localhost:3000/sessions", {
+    // const url = "https://rocky-forest-46725.herokuapp.com/sessions"
+    const url = "http://localhost:3000/sessions"
+    fetch(url, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -45,8 +47,6 @@ class LoginForm extends Component {
       AsyncStorage.setItem('sessionId', JSON.stringify(sessionId),
     () => { AsyncStorage.getItem('sessionId', (err, result) => {
       const userId = result;
-      console.log(this.props.navigation.navigate)
-      alert("Welcome!")
       this.props.navigation.navigate("User", {userId: userId})
     }) } )
   }.bind(this))

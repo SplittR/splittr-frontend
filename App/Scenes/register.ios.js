@@ -19,7 +19,7 @@ class RegisterScene extends Component {
     return(
       <View style={styles.background}>
         <LinearGradient colors={['#b6fbff', '#83a4d4']} style={styles.linearGradient}>
-      <RegisterForm /> 
+      <RegisterForm navigation={this.props.navigation} />
       </LinearGradient>
     </View>
     )

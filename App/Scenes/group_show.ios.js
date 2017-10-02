@@ -58,9 +58,12 @@ class GroupShowScene extends Component {
 
 
   componentWillMount = function() {
-    // const id = this.props.navigation.state.params.group.id
+
+    const id = this.props.navigation.state.params.groupId
+    console.log(id)
+    // const url = "https://rocky-forest-46725.herokuapp.com/groups/"
     const url = "http://localhost:3000/groups/"
-    const fetchUrl = url + 22; //id
+    const fetchUrl = url + id;
     fetch(fetchUrl,
       {method: 'GET'}
     ).then((response) => response.json()
@@ -78,7 +81,7 @@ class GroupShowScene extends Component {
 
   render() {
     const { navigate } = this.props.navigation;
-    const groupId = 22
+    const id = this.props.navigation.state.params.groupId;
     return(
       <LinearGradient colors={['#b6fbff', '#83a4d4']} style={styles.linearGradient}>
         <View style={styles.background}>
@@ -92,7 +95,7 @@ class GroupShowScene extends Component {
             <Text>Member Split:</Text>
             <Text>${this.state.memberSplit}</Text>
           </View>
-          <MemberList groupId={groupId} members={this.state.members} navigate={ navigate }/>
+          <MemberList groupId={id} members={this.state.members} navigate={ navigate }/>
           <TouchableHighlight onPress={() => navigate('CameraAcc')}>
             <Text style={styles.button}>Add New Expense</Text>
           </TouchableHighlight>

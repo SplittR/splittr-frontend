@@ -6,7 +6,8 @@ import {
   TextInput,
   View,
   Button,
-  TouchableHighlight
+  TouchableHighlight,
+  AsyncStorage
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import GroupShowScene from '../Scenes/group_show.ios.js';
@@ -15,10 +16,20 @@ class GroupForm extends Component {
   constructor() {
     super();
     this.state = {group: {
-        group_name: "Name",
-        details: "Details",
-        creator_id: 24
+        group_name: "",
+        details: "",
+        creator_id: 0
       }};
+  }
+
+  findCreatorId() {
+    AsyncStorage.getItem('sessionId', (err, result) => {
+      this.setState({group: { creator_id: result, group_name: "", details: "" }})
+    })
+  }
+
+  componentWillMount = function() {
+    this.findCreatorId()
   }
 
   handleInputChange(name, text) {
@@ -34,7 +45,9 @@ class GroupForm extends Component {
   handleButtonPress() {
     const { group } = this.state;
     const { navigation } = this.props;
-    fetch("http://localhost:3000/groups", {
+    // const url = "https://rocky-forest-46725.herokuapp.com/groups"
+    const url = "http://localhost:3000/groups"
+    fetch(url, {
       method: 'post',
       headers: {
         'Accept': 'application/json',
@@ -42,10 +55,13 @@ class GroupForm extends Component {
       },
       body: JSON.stringify({group})
     }).then(function(response) {
-      console.log(response)
-    }).then((response) =>
-      navigation.navigate("GroupShow")
-    )
+      return response.json()
+    }).then(function(responseJson) {
+      console.log(responseJson);
+      navigation.navigate("GroupShow", {groupId: responseJson.group.id})
+    }).catch(function(err) {
+      alert(err)
+    })
   }
 
   render() {

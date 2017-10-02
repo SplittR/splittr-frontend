@@ -19,11 +19,14 @@ class ProfileGroup extends Component {
         <Text style={styles.group}>Your Groups</Text>
         {groups.map(function(group, index){
           return (
-            <TouchableHighlight style={styles.list}>
-              <Text style={styles.text} key={index} onPress = {() => navigation.navigate('GroupShow', {group_id: group.id})}>{group.group_name}</Text>
-            <TouchableHighlight key={index}>
-              <Text onPress = {() => navigation.navigate('GroupShow', {group: group})}>{group.group_name}: button</Text>
-            </TouchableHighlight>
+            <View>
+              <TouchableHighlight style={styles.list}>
+                <Text style={styles.text} key={index} onPress = {() => navigation.navigate('GroupShow', {groupId: group.id})}>{group.group_name}</Text>
+              </TouchableHighlight>
+              {/* <TouchableHighlight key={index}>
+                <Text onPress = {() => navigation.navigate('GroupShow', {group: group})}>{group.group_name}: button</Text>
+              </TouchableHighlight> */}
+            </View>
           )
         })}
       </View>

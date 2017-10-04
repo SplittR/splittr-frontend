@@ -121,4 +121,4 @@ class ExpenseForm extends Component {
       }
     });
 
-    export default ExpenseForm;
+export default ExpenseForm;

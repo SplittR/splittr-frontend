@@ -64,7 +64,6 @@ class GroupForm extends Component {
   render() {
     return(
       <View>
-
         <View style={styles.container}>
           <Text style={styles.label}>Group Name:</Text>
           <TextInput
@@ -76,7 +75,6 @@ class GroupForm extends Component {
           <TextInput name="description"
             style={styles.input}
             onChangeText={this.onChangeDetails}/>
-
           <TouchableHighlight >
             <Text style={styles.signIn} onPress = {this.onButtonPress}>Create Group</Text>
           </TouchableHighlight>

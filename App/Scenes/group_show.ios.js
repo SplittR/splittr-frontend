@@ -10,11 +10,12 @@ import  MemberList from '../Components/member_list';
 import LinearGradient from 'react-native-linear-gradient';
 import ExpenseForm from './expenses_new.ios.js';
 import { StackNavigator } from 'react-navigation';
+import {Container, Footer, Title, Button, Icon} from 'native-base';
+import UserShowScene from './user_show.ios.js';
 
 const styles = StyleSheet.create({
   background: {
   backgroundColor: 'transparent',
-
   },
   linearGradient: {
     height: "100%",
@@ -86,11 +87,27 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     justifyContent: 'space-between',
     backgroundColor: 'transparent'
-  }
-
-})
+  },
+  backdrop: {
+    width: '100%',
+    height: '100%',
+  },
+  bottom: {
+    margin: 100,
+  },
+  text:{
+    fontSize: 25,
+    backgroundColor: 'transparent',
+    color:'black',
+    fontWeight: 'bold',
+  },
+});
 
 class GroupShowScene extends Component {
+  static navigationOptions = {
+    title: 'Your Group',
+    headerStyle: {backgroundColor: '#F7F9FB'}
+  };
   constructor() {
     super();
     this.state = {group: {

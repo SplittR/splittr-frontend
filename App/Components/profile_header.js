@@ -22,18 +22,13 @@ class ProfileHeader extends Component {
       <View style={styles.header}>
         <Text style={styles.user}> Hi {this.props.userName}!</Text>
         <TouchableHighlight style={styles.welcome}>
-          <Text style={styles.text} onPress={() => navigate('GroupNewScene')}>Create New Squad</Text>
+          <Text style={styles.text} onPress={() => navigate('Group')}>Create New Squad</Text>
         </TouchableHighlight>
       </View>
     );
   }
 }
 
-const splittr = StackNavigator({
-  GroupForm: {
-    screen: GroupForm,
-  },
-});
 const styles = StyleSheet.create({
   welcome: {
     fontSize: 20,

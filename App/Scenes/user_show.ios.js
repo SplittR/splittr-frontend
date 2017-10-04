@@ -6,16 +6,17 @@ import {
   TextInput,
   View,
   Image,
-  Button,
   AsyncStorage,
-  ImageBackground
+  ImageBackground,
+  TouchableHighlight,
 } from 'react-native';
-// import { LoginForm } from '../Components/login_form'
+import { LoginForm } from '../Components/login_form';
+import { StackNavigator } from 'react-navigation';
 import ProfileHeader  from '../Components/profile_header';
 import ProfileGroup  from '../Components/profile_group_list';
-import LinearGradient from 'react-native-linear-gradient';
-import { Tabs } from '../Components/router.js';
-import backgroundImage from '../../ocean.jpg'
+import backgroundImage from '../../ocean.jpg';
+import {Container, Footer, Title, Button, Icon} from 'native-base';
+import GroupNewScene from './new_group.ios.js';
 
 class UserShowScene extends React.Component {
   static navigationOptions = {
@@ -54,9 +55,11 @@ class UserShowScene extends React.Component {
 
   render(){
     const { user } = this.state
+    const { navigate } = this.props.navigation
     const { navigation } = this.props
+
     return(
-      <LinearGradient colors={['#83a4d4', '#b6fbff']} style={styles.linearGradient}>
+      <Container>
       <View style={{flex: 1 }}>
         <Image
         style={styles.backdrop}
@@ -65,7 +68,12 @@ class UserShowScene extends React.Component {
         <ProfileGroup style={styles.bottom} groups={user.groups} navigation={navigation}/>
         </Image>
         </View>
-      </LinearGradient>
+          <Footer>
+            <TouchableHighlight onPress={() => navigate('Group')}>
+                <Text style={styles.text}>Create Group</Text>
+            </TouchableHighlight>
+          </Footer>
+      </Container>
     )
   }
 }
@@ -74,11 +82,15 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
   },
-  linearGradient: {
-    height: "100%",
-  },
   bottom: {
     margin: 100,
+  },
+  text:{
+    fontSize: 25,
+    backgroundColor: 'transparent',
+    color:'black',
+    fontWeight: 'bold',
   }
 });
+
 export default UserShowScene ;

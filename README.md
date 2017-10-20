@@ -15,6 +15,6 @@ SplittR is a mobile application that allows users to make groups and add receipt
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo3.png "SplittR")
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo4.png "SplittR")
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo5.png "SplittR")
-![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo6.png "SplittR")
+![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo6.jpg "SplittR")
 
 

@@ -10,11 +10,17 @@ SplittR is a mobile application that allows users to make groups and add receipt
 * CSS
 
 ## Visial Overview
+### User Profile Page
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo1.png "SplittR")
+### Group Show Page
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo2.png "SplittR")
+### Add New User
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo3.png "SplittR")
+### Receipt
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo6.jpg "SplittR")
+### Auto Populated New Expense Form
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo5.png "SplittR")
+### Expense Show Page
 ![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo4.png "SplittR")
 
 

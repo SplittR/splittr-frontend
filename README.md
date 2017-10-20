@@ -10,6 +10,6 @@ SplittR is a mobile application that allows users to make groups and add receipt
 * CSS
 
 ## Visial Overview
-![Micro Manage](https://github.com/ed13f/Micro-Manage/blob/master/Micro-Manage.png?raw=true "Micro Manage")
+![SplittR](https://github.com/SplittR/splittr-frontend/blob/master/photo1.png "SplittR")
 
 

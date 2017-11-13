@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
   AppRegistry,
-  StyleSheet,
   TouchableHighlight,
   Text,
   View,
@@ -10,6 +9,7 @@ import {
 import ExpenseForm from '../Components/new_expense_form.js'
 import LinearGradient from 'react-native-linear-gradient';
 import Camera from '../Components/camera.js';
+import ExpenseNewStyles from '../Styles/expenseNewSceneStyles'
 
 class ExpenseNewScene extends Component {
   constructor() {
@@ -65,9 +65,9 @@ class ExpenseNewScene extends Component {
     const { navigation } = this.props
     return(
       <View>
-        <LinearGradient colors={['#b6fbff', '#83a4d4']} style={styles.linearGradient}>
-          <TouchableHighlight style={styles.scanButton} onPress={() => navigation.navigate('Camera', {handleOnChange: this.handleOnChangeCamera, groupId: this.props.navigation.state.params.groupId, userId: this.state.expense.user_id})}>
-            <Text style={styles.scanText}>Scan Receipt</Text>
+        <LinearGradient colors={['#b6fbff', '#83a4d4']} style={ExpenseNewStyles.linearGradient}>
+          <TouchableHighlight style={ExpenseNewStyles.scanButton} onPress={() => navigation.navigate('Camera', {handleOnChange: this.handleOnChangeCamera, groupId: this.props.navigation.state.params.groupId, userId: this.state.expense.user_id})}>
+            <Text style={ExpenseNewStyles.scanText}>Scan Receipt</Text>
           </TouchableHighlight>
           <ExpenseForm navigation={navigation} expense={this.state.expense} handleInputChange={this.handleInputChange} handleButtonPress={this.handleButtonPress} />
         </LinearGradient>
@@ -75,34 +75,5 @@ class ExpenseNewScene extends Component {
     )
   }
 }
-const styles = StyleSheet.create({
-  linearGradient: {
-    height: "100%",
-  },
-  background: {
-    flex: 1,
-    backgroundColor: 'transparent'
-  },
-  button: {
-    backgroundColor: '#00ff00',
-    fontWeight: 'bold',
-  },
-  scanButton:{
-    paddingTop: 10,
-    paddingBottom: 10,
-    borderRadius: 15,
-    borderWidth: 2,
-    borderColor: '#8BBFC2',
-    marginTop: 30,
-    marginLeft: 30,
-    marginRight: 30,
-    color: '#666666'
-  },
-  scanText:{
-    textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: 20,
-    color: '#666666'
-  }
-});
+
 export default ExpenseNewScene;

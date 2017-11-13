@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import GroupShowScene from '../Scenes/group_show.ios.js';
+import NewGroupFormStyles from '../Styles/newGroupFormStyles';
 
 class GroupForm extends Component {
   constructor() {
@@ -64,7 +65,6 @@ class GroupForm extends Component {
   render() {
     return(
       <View>
-
         <View style={styles.container}>
           <Text style={styles.label}>Group Name:</Text>
           <TextInput
@@ -85,32 +85,5 @@ class GroupForm extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    marginLeft: 25,
-    marginRight:25,
-    paddingTop:30
-  },
-  label: {
-    paddingTop:10,
-    backgroundColor: "transparent",
-    height: 35,
-    color: '#666666'
-  },
-  input: {
-    backgroundColor: "transparent",
-    height: 30,
-    color: '#666666',
-    borderBottomColor: "#666666",
-    borderBottomWidth: 1
-  },
-  signIn:{
-    marginTop: 8,
-    textAlign: "center",
-    fontSize: 25,
-    color: '#666666'
-  }
-});
 
 export default GroupForm;

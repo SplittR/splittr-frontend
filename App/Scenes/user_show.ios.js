@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import {
   AppRegistry,
-  StyleSheet,
   Text,
   TextInput,
   View,
@@ -15,6 +14,7 @@ import ProfileGroup  from '../Components/profile_group_list';
 import LinearGradient from 'react-native-linear-gradient';
 import { Tabs } from '../Components/router.js';
 import backgroundImage from '../../ocean.jpg'
+import UserShowSceneStyles from '../Styles/userShowSceneStyles'
 
 class UserShowScene extends React.Component {
   static navigationOptions = {
@@ -55,29 +55,18 @@ class UserShowScene extends React.Component {
     const { user } = this.state
     const { navigation } = this.props
     return(
-      <LinearGradient colors={['#83a4d4', '#b6fbff']} style={styles.linearGradient}>
+      <LinearGradient colors={['#83a4d4', '#b6fbff']} style={UserShowSceneStyles.linearGradient}>
       <View style={{flex: 1 }}>
         <Image
-        style={styles.backdrop}
+        style={UserShowSceneStyles.backdrop}
         source={backgroundImage}>
         <ProfileHeader userName={user.firstName} navigation={navigation}/>
-        <ProfileGroup style={styles.bottom} groups={user.groups} navigation={navigation}/>
+        <ProfileGroup style={UserShowSceneStyles.bottom} groups={user.groups} navigation={navigation}/>
         </Image>
         </View>
       </LinearGradient>
     )
   }
 }
-const styles = StyleSheet.create({
-  backdrop: {
-    width: '100%',
-    height: '100%',
-  },
-  linearGradient: {
-    height: "100%",
-  },
-  bottom: {
-    margin: 100,
-  }
-});
+
 export default UserShowScene ;

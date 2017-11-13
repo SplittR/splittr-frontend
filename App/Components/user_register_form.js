@@ -1,14 +1,15 @@
 import React, {Component} from 'react';
 import { StackNavigator } from 'react-navigation';
 import { FormLabel, FormInput, labelStyle } from 'react-native-elements'
-import { StyleSheet,
-         TextInput,
-         TouchableHighlight,
-         View,
-         Button,
-         Text,
-         AsyncStorage
-       } from 'react-native';
+import {
+  TextInput,
+  TouchableHighlight,
+  View,
+  Button,
+  Text,
+  AsyncStorage
+} from 'react-native';
+import UserRegisterFormStyles from '../Styles/userRegisterFormStyles'
 
 class RegisterForm extends Component {
   constructor() {
@@ -52,62 +53,34 @@ class RegisterForm extends Component {
 
   render() {
     return(
-      <View style={styles.text}>
-        <View style={styles.container}>
-          <Text style={styles.label}>First Name</Text>
+      <View style={UserRegisterFormStyles.text}>
+        <View style={UserRegisterFormStyles.container}>
+          <Text style={UserRegisterFormStyles.label}>First Name</Text>
           <TextInput
-            style={styles.input}
+            style={UserRegisterFormStyles.input}
             name="first_name"
              onChangeText={this.onChangeFirstName} />
 
-          <Text style={styles.label}>Last Name</Text>
+          <Text style={UserRegisterFormStyles.label}>Last Name</Text>
           <TextInput name="last_name"
-            style={styles.input}
+            style={UserRegisterFormStyles.input}
             onChangeText={this.onChangeLastName}/>
-          <Text style={styles.label}>Email</Text>
+          <Text style={UserRegisterFormStyles.label}>Email</Text>
           <TextInput name="email"
-              style={styles.input}
+              style={UserRegisterFormStyles.input}
               onChangeText={this.onChangeEmail}/>
-          <Text style={styles.label}>Password</Text>
+          <Text style={UserRegisterFormStyles.label}>Password</Text>
           <TextInput name="password"
-                style={styles.input}
+                style={UserRegisterFormStyles.input}
                 onChangeText={this.onChangePassword}/>
 
           <TouchableHighlight >
-            <Text style={styles.signIn} onPress = {this.handleNewUserSubmit}>Create User</Text>
+            <Text style={UserRegisterFormStyles.signIn} onPress = {this.handleNewUserSubmit}>Create User</Text>
           </TouchableHighlight>
         </View>
       </View>
     )
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    marginLeft: 25,
-    marginRight:25,
-    paddingTop:30
-  },
-  label: {
-    paddingTop:10,
-    backgroundColor: "transparent",
-    height: 35,
-    color: '#666666'
-  },
-  input: {
-    backgroundColor: "transparent",
-    height: 30,
-    color: '#666666',
-    borderBottomColor: "#666666",
-    borderBottomWidth: 1
-  },
-  signIn:{
-    marginTop: 8,
-    textAlign: "center",
-    fontSize: 25,
-    color: '#666666'
-  }
-});
-
-
 
 export {RegisterForm};

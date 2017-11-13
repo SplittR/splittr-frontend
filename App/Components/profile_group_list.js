@@ -6,27 +6,25 @@ import {
   TouchableHighlight,
   Text,
   AppRegistry,
-  StyleSheet,
   ScrollView,
 } from 'react-native';
 import { StackNavigator } from 'react-navigation'
 import { NavigationActions } from 'react-navigation'
+import profileGroupStyles from '../Styles/profileGroupStyles'
 
 class ProfileGroup extends Component {
   render() {
     const { navigation, groups } = this.props;
     return(
-      <View style={styles.container}>
-        <View style={styles.header}>
-        </View>
-        <Text style={styles.group}>Your Groups</Text>
+      <View style={profileGroupStyles.container}>
+        <Text style={profileGroupStyles.group}>Your Groups</Text>
         <ScrollView style={{flex: 3}}>
           <View>
             {groups.map(function(group, index){
               return (
-                <TouchableHighlight onPress = {() => navigation.navigate('GroupShow', {groupId: group.id})} style={styles.list}>
+                <TouchableHighlight onPress = {() => navigation.navigate('GroupShow', {groupId: group.id})} style={profileGroupStyles.list}>
                   <Text
-                    style={styles.text}
+                    style={profileGroupStyles.text}
                     key={index}>{group.group_name}</Text>
                 </TouchableHighlight>
               )
@@ -37,47 +35,5 @@ class ProfileGroup extends Component {
     );
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-  },
-  list: {
-    fontSize: 20,
-    padding: 10,
-    margin: 10,
-    alignItems: 'center',
-    backgroundColor: '#AAA0A0',
-    borderRadius: 700,
-    marginRight: 70,
-    marginLeft: 70,
-    opacity: .80,
-  },
-header:{
-  justifyContent: 'center',
-  backgroundColor: 'transparent',
-  fontSize: 15,
-  color:'#F7F9FB',
-  fontWeight: '400',
-},
-group: {
-  padding:10,
-  color:'#F7F9FB',
-  fontWeight: 'bold',
-  justifyContent: 'center',
-  alignItems: 'center',
-  textAlign: 'center',
-  fontSize: 20,
-  backgroundColor: 'transparent',
-
-},
-text:{
-  padding:5,
-  fontSize: 15,
-  color:'#F7F9FB',
-  fontWeight: '800',
-  opacity: 1,
-  }
-})
 
 export default ProfileGroup;

@@ -1,23 +1,16 @@
 import React, {Component} from 'react';
 import {
   AppRegistry,
-  StyleSheet,
   Text,
   View
 } from 'react-native';
-
-let style = StyleSheet.create({
-  container: {
-    width: 250,
-    height: 100,
-  },
-})
+import ExpenseStyles from '../Styles/expenseStyle'
 
 class Expense extends Component {
   render() {
     const { expense } = this.props;
     return(
-      <View style={ style.container }>
+      <View style={ ExpenseStyles.container }>
         <Text>{ expense.user}: </Text>
           <Text>Amount: { expense.amount } paid to: { expense.vendor }</Text>
       </View>

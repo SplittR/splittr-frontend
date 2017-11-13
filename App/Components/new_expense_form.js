@@ -8,67 +8,35 @@ import { TextInput,
   Text,
   AsyncStorage
 } from 'react-native';
+import ExpenseFormStyles from '../Styles/newExpenseFormStyles';
 
 class ExpenseForm extends Component {
   render() {
     return(
       <View>
-        <View style={styles.container}>
-          <Text style={styles.label}>Vendor</Text>
+        <View style={ExpenseFormStyles.container}>
+          <Text style={ExpenseFormStyles.label}>Vendor</Text>
           <TextInput
-            style={styles.input}
+            style={ExpenseFormStyles.input}
             name="vendor"
             onChange={(evt) => this.props.handleInputChange('vendor',evt)}
           />
-          <Text style={styles.label}>Description</Text>
+          <Text style={ExpenseFormStyles.label}>Description</Text>
           <TextInput name="description"
-            style={styles.input}
+            style={ExpenseFormStyles.input}
             onChange={(evt) => this.props.handleInputChange('description',evt)} />
-            <Text style={styles.label}>Amount</Text>
-            <TextInput name="amount"
-              style={styles.input}
+          <Text style={ExpenseFormStyles.label}>Amount</Text>
+          <TextInput name="amount"
+              style={ExpenseFormStyles.input}
               onChange={(evt) => this.props.handleInputChange('amount',evt)} value={this.props.expense.amount}/>
 
-              <TouchableHighlight onPress={this.props.handleButtonPress}>
-                <Text style={styles.confirm}>Confirm Expense</Text>
-              </TouchableHighlight>
-            </View>
-          </View>
-        )
-      }
-    }
-    const styles = StyleSheet.create({
-      container: {
-        marginLeft: 25,
-        marginRight:25,
-        paddingTop:30
-      },
-      label: {
-        paddingTop:10,
-        backgroundColor: "transparent",
-        height: 35,
-        color: '#666666'
-      },
-      input: {
-        backgroundColor: "transparent",
-        height: 30,
-        color: '#666666',
-        borderBottomColor: "#666666",
-        borderBottomWidth: 1
-      },
-      confirm:{
-        paddingTop: 10,
-        paddingBottom: 10,
-        borderRadius: 15,
-        borderWidth: 2,
-        borderColor: "#666666",
-        marginTop: 30,
-        marginLeft: 30,
-        marginRight: 30,
-        color: '#666666',
-        textAlign: "center",
-        fontSize: 25
-      }
-    });
+          <TouchableHighlight onPress={this.props.handleButtonPress}>
+            <Text style={ExpenseFormStyles.confirm}>Confirm Expense</Text>
+          </TouchableHighlight>
+        </View>
+      </View>
+    )
+  }
+}
 
-    export default ExpenseForm;
+export default ExpenseForm;

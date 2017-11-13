@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements'
 import { Keyboard, TextInput } from 'react-native';
 import { AppRegistry,
-         StyleSheet,
          TouchableHighlight,
          Button,
          View,
@@ -11,6 +10,7 @@ import { AppRegistry,
        } from 'react-native';
 import { StackNavigator } from 'react-navigation';
 import UserShowScene from '../Scenes/user_show.ios.js';
+import LoginFormStyles from '../Styles/loginFormStyles';
 
 class LoginForm extends Component {
   constructor(props) {
@@ -54,51 +54,28 @@ class LoginForm extends Component {
   render() {
     return(
       <View>
-        <View style={styles.container}>
-          <Text style={styles.label}>Email</Text>
+        <View style={LoginFormStyles.container}>
+          <Text style={LoginFormStyles.label}>Email</Text>
           <TextInput
-            style={styles.input}
+            autoCapitalize= {false}
+            style={LoginFormStyles.input}
             name="email"
              onChangeText={this.onChangeEmail}
           />
-          <Text style={styles.label}>Password</Text>
+          <Text style={LoginFormStyles.label}>Password</Text>
           <TextInput name="password"
-            style={styles.input}
+            style={LoginFormStyles.input}
+            autoCapitalize= {false}
+            secureTextEntry = {true}
             onChangeText={this.onChangePassword}/>
 
           <TouchableHighlight >
-            <Text style={styles.signIn} onPress = {this.handleUserSubmit}>Sign In</Text>
+            <Text style={LoginFormStyles.signIn} onPress = {this.handleUserSubmit}>Sign In</Text>
           </TouchableHighlight>
         </View>
       </View>
     )
   }
 }
-const styles = StyleSheet.create({
-  container: {
-    marginLeft: 25,
-    marginRight:25,
-    paddingTop:30
-  },
-  label: {
-    paddingTop:10,
-    backgroundColor: "transparent",
-    height: 35,
-    color: '#666666'
-  },
-  input: {
-    backgroundColor: "transparent",
-    height: 30,
-    color: '#666666',
-    borderBottomColor: "#666666",
-    borderBottomWidth: 1
-  },
-  signIn:{
-    marginTop: 8,
-    textAlign: "center",
-    fontSize: 25,
-    color: '#666666'
-  }
-});
 
 export { LoginForm };
